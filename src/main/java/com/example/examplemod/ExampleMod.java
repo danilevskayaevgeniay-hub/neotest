@@ -50,7 +50,7 @@ public class ExampleMod {
     public static final DeferredItem<BlockItem> EXAMPLE_BLOCK_ITEM = ITEMS.registerSimpleBlockItem("example_block", EXAMPLE_BLOCK);
 
     // Creates a new food item with the id "examplemod:example_id", nutrition 1 and saturation 2
-    public static final DeferredItem<Item> MAGIC_WAND = ITEMS.registerItem("magic_wand", MagicWandItem::new, new Item.Properties().stacksTo(1)
+    public static final DeferredItem<MagicWand> MAGIC_WAND = ITEMS.registerItem("magic_wand", MagicWandItem::new, new Item.Properties().stacksTo(1)
             );
 
     // Creates a creative tab with the id "examplemod:example_tab" for the example item, that is placed after the combat tab
