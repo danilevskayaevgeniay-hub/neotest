@@ -19,11 +19,11 @@ public class MagicWandItem extends Item{
         InteractionHand hand
 ) {
 ItemStack stack = player.getItemInHand(hand);
-    if (!level.IsClientSide) {
-      pllayer.sendSystemMessage(
+    if (!level.isClientSide) {
+      player.sendSystemMessage(
         Component.literal("Magic Works")
       );
     }
-return InteractionResultHolder.succes(stack);
+return InteractionResultHolder.success(stack);
 }
 }
