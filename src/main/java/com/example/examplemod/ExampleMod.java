@@ -1,5 +1,6 @@
 package com.example.examplemod;
 import com.example.examplemod.item.MagicWandItem;
+import com.example.examplemod.item.SeaMagicWandItem;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
