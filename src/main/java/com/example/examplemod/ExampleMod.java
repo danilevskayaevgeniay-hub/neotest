@@ -52,6 +52,8 @@ public class ExampleMod {
     // Creates a new food item with the id "examplemod:example_id", nutrition 1 and saturation 2
     public static final DeferredItem<MagicWandItem> MAGIC_WAND = ITEMS.registerItem("magic_wand", MagicWandItem::new, new Item.Properties().stacksTo(1)
             );
+    public static final DeferredItem<SeaMagicWandItem> SEA_MAGIC_WAND = ITEMS.registerItem("sea_magic_wand", SeaMagicWandItem::new, new Item.Properties().stacksTo(1).durability(8)
+            );
 
     // Creates a creative tab with the id "examplemod:example_tab" for the example item, that is placed after the combat tab
     //public static final DeferredHolder<CreativeModeTab, CreativeModeTab> EXAMPLE_TAB = CREATIVE_MODE_TABS.register("example_tab", () -> CreativeModeTab.builder()
@@ -104,6 +106,7 @@ public class ExampleMod {
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
             event.accept(MAGIC_WAND);
+            event.accept(SEA_MAGIC_WAND);
         }
     }
 
