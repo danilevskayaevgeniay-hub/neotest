@@ -7,7 +7,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-//import ru.azazel.alchemytable.entity.LightProjectile;
+import com.example.examplemod.entity.LightProjectile;
 
 public class ChargedMagicWandItem extends Item {
 
@@ -23,34 +23,34 @@ public class ChargedMagicWandItem extends Item {
     ) {
         ItemStack stack = player.getItemInHand(hand);
 
-//        if (!level.isClientSide) {
-//            LightProjectile projectile =
-//                    new LightProjectile(level, player);
-//
-//            projectile.shootFromRotation(
-  //                  player,
-    //                player.getXRot(),
-      //              player.getYRot(),
-        //            0.0F,
-          //          1.5F,
-            //        1.0F
-            //);
+        if (!level.isClientSide) {
+            LightProjectile projectile =
+                    new LightProjectile(level, player);
 
-//            level.addFreshEntity(projectile);
-//
-  //          if (stack.getDamageValue() + 1 >= stack.getMaxDamage()) {
-    //            player.setItemInHand(hand, new ItemStack(ModItems.MAGIC_WAND));
-      //      }
-        //    else{
-          //      stack.setDamageValue(stack.getDamageValue() + 1);
-            //}
-//
-  //          player.getCooldowns().addCooldown(this, 20);
-    //    }
-//
-  //      return InteractionResultHolder.sidedSuccess(
-    //            stack,
-      //          level.isClientSide()
-        //);
+            projectile.shootFromRotation(
+                    player,
+                    player.getXRot(),
+                    player.getYRot(),
+                    0.0F,
+                    1.5F,
+                    1.0F
+            );
+
+            level.addFreshEntity(projectile);
+
+            if (stack.getDamageValue() + 1 >= stack.getMaxDamage()) {
+                player.setItemInHand(hand, new ItemStack(ModItems.MAGIC_WAND));
+            }
+            else{
+                stack.setDamageValue(stack.getDamageValue() + 1);
+            }
+
+            player.getCooldowns().addCooldown(this, 20);
+        }
+
+        return InteractionResultHolder.sidedSuccess(
+                stack,
+                level.isClientSide()
+        );
     }
 }
