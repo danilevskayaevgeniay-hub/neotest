@@ -4,6 +4,10 @@
   "item.examplemod.magic_wand": "Волшебная палочка",
   "item.examplemod.sea_magic_wand": "Волшебная палочка: Заряд моря",
   "item.examplemod.seeking_magic_wand": "Волшебная палочка: Заряд поиска",
+  "item.examplemod.flame_magic_wand": "Волшебная палочка: Заряд огня",
+  "item.examplemod.light_magic_wand": "Волшебная палочка: Заряд света",
+  "item.examplemod.wind_magic_wand": "Волшебная палочка: Заряд ветра",
+  "item.examplemod.redstone_magic_wand": "Волшебная палочка: Заряд редстоуна",
 
   "examplemod.configuration.title": "Example Mod Configs",
   "examplemod.configuration.section.examplemod.common.toml": "Example Mod Configs",
