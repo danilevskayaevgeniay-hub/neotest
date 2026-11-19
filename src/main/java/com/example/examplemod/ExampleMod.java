@@ -1,6 +1,7 @@
 package com.example.examplemod;
 import com.example.examplemod.item.MagicWandItem;
 import com.example.examplemod.item.SeaMagicWandItem;
+import com.example.examplemod.item.SeekingMagicWandItem;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -55,6 +56,8 @@ public class ExampleMod {
             );
     public static final DeferredItem<SeaMagicWandItem> SEA_MAGIC_WAND = ITEMS.registerItem("sea_magic_wand", SeaMagicWandItem::new, new Item.Properties().stacksTo(1).durability(8)
             );
+    public static final DeferredItem<SeekingMagicWandItem> SEEKING_MAGIC_WAND = ITEMS.registerItem("seeking_magic_wand", SeekingMagicWandItem::new, new Item.Properties().stacksTo(1).durability(8)
+            );
 
     // Creates a creative tab with the id "examplemod:example_tab" for the example item, that is placed after the combat tab
     //public static final DeferredHolder<CreativeModeTab, CreativeModeTab> EXAMPLE_TAB = CREATIVE_MODE_TABS.register("example_tab", () -> CreativeModeTab.builder()
@@ -108,6 +111,7 @@ public class ExampleMod {
         if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
             event.accept(MAGIC_WAND);
             event.accept(SEA_MAGIC_WAND);
+            event.accept(SEEKING_MAGIC_WAND);
         }
     }
 
