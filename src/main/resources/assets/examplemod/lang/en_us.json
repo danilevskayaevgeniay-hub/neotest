@@ -4,6 +4,10 @@
   "item.examplemod.magic_wand": "Magic wand",
   "item.examplemod.sea_magic_wand": "Magic wand: Sea charge",
   "item.examplemod.seeking_magic_wand": "Magic wand: Seeking charge",
+  "item.examplemod.flame_magic_wand": "Magic wand: Flame charge",
+  "item.examplemod.light_magic_wand": "Magic wand: Light charge",
+  "item.examplemod.wind_magic_wand": "Magic wand: Wind charge",
+  "item.examplemod.redstone_magic_wand": "Magic wand: Redstone charge",
 
   "examplemod.configuration.title": "Example Mod Configs",
   "examplemod.configuration.section.examplemod.common.toml": "Example Mod Configs",
