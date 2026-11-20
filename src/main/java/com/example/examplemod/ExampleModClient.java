@@ -9,6 +9,8 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
+import net.minecraft.client.renderer.entity.ThrownItemRenderer;
+import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 
 // This class will not load on dedicated servers. Accessing client side code from here is safe.
 @Mod(value = ExampleMod.MODID, dist = Dist.CLIENT)
@@ -28,4 +30,14 @@ public class ExampleModClient {
         ExampleMod.LOGGER.info("HELLO FROM CLIENT SETUP");
         ExampleMod.LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
     }
+    @SubscribeEvent
+    static void registerRenderers(
+            EntityRenderersEvent.RegisterRenderers event
+    ) {
+        event.registerEntityRenderer(
+                ExampleMod.FLAME_PROJECTILE.get(),
+                ThrownItemRenderer::new
+        );
+      }
+
 }
