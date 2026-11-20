@@ -128,6 +128,7 @@ public class ExampleMod {
             event.accept(MAGIC_WAND);
             event.accept(SEA_MAGIC_WAND);
             event.accept(SEEKING_MAGIC_WAND);
+            event.accept(FLAME_MAGIC_WAND);
         }
     }
 
