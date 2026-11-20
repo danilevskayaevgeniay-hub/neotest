@@ -2,6 +2,7 @@ package com.example.examplemod;
 import com.example.examplemod.item.MagicWandItem;
 import com.example.examplemod.item.SeaMagicWandItem;
 import com.example.examplemod.item.SeekingMagicWandItem;
+import com.example.examplemod.entity.FlameProjectile;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -17,6 +18,8 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MobCategory;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -44,7 +47,16 @@ public class ExampleMod {
     // Create a Deferred Register to hold Items which will all be registered under the "examplemod" namespace
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(MODID);
     // Create a Deferred Register to hold CreativeModeTabs which will all be registered under the "examplemod" namespace
+    public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(BuiltInRegistries.ENTITY_TYPE,MODID);
     //public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
+    public static final DeferredHolder <EntityType<?>, EntityType<FlameProjectile>> FLAME_PROJECTILE = ENTITY_TYPES.register(
+            "flame_projectile",
+            () -> EntityType.Builder.<FlameProjectile>of(FlameProjectile::new, MobCategory.MISC)
+                    .sized(0.25F, 0.25F)
+                    .clientTrackingRange(4)
+                    .updateInterval(10)
+                    .build()
+    );
 
     // Creates a new Block with the id "examplemod:example_block", combining the namespace and path
     public static final DeferredBlock<Block> EXAMPLE_BLOCK = BLOCKS.registerSimpleBlock("example_block", BlockBehaviour.Properties.of().mapColor(MapColor.STONE));
@@ -79,6 +91,7 @@ public class ExampleMod {
         // Register the Deferred Register to the mod event bus so items get registered
         ITEMS.register(modEventBus);
         // Register the Deferred Register to the mod event bus so tabs get registered
+        ENTITY_TYPES.register(modEventBus);
         //CREATIVE_MODE_TABS.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in.
