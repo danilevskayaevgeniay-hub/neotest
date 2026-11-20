@@ -55,7 +55,7 @@ public class ExampleMod {
                     .sized(0.25F, 0.25F)
                     .clientTrackingRange(4)
                     .updateInterval(10)
-                    .build()
+                    .build("flame_projectile")
     );
 
     // Creates a new Block with the id "examplemod:example_block", combining the namespace and path
