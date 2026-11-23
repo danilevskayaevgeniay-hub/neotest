@@ -48,7 +48,7 @@ public class ExampleMod {
     // Create a Deferred Register to hold Blocks which will all be registered under the "examplemod" namespace
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(MODID);
     // Create a Deferred Register to hold Items which will all be registered under the "examplemod" namespace
-    public static final DeferredBlock<AlchemyTableBlock> ALCHEMY_TABLE = BLOCKS.register("alchemy_table", AlchemyTableBlock::new, BlockBehaviour.Properties.of().strength(2.5f, 6.0f).sound(SoundType.WOOD).noOcclusion());
+    public static final DeferredBlock<AlchemyTableBlock> ALCHEMY_TABLE = BLOCKS.registerBlock("alchemy_table", AlchemyTableBlock::new, BlockBehaviour.Properties.of().strength(2.5f, 6.0f).sound(SoundType.WOOD).noOcclusion());
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(MODID);
     // Create a Deferred Register to hold CreativeModeTabs which will all be registered under the "examplemod" namespace
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(BuiltInRegistries.ENTITY_TYPE,MODID);
@@ -136,7 +136,7 @@ public class ExampleMod {
             event.accept(FLAME_MAGIC_WAND);
         }
         if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
-            event.accept(ALCHEMY_TABLE);
+            event.accept(ALCHEMY_TABLE_ITEM);
         }
     }
 
