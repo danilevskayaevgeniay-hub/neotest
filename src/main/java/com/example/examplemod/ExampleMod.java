@@ -4,6 +4,7 @@ import com.example.examplemod.item.SeaMagicWandItem;
 import com.example.examplemod.item.SeekingMagicWandItem;
 import com.example.examplemod.item.FlameMagicWandItem;
 import com.example.examplemod.entity.FlameProjectile;
+import com.example.examplemod.block.AlchemyTableBlock;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -18,6 +19,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -46,6 +48,7 @@ public class ExampleMod {
     // Create a Deferred Register to hold Blocks which will all be registered under the "examplemod" namespace
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(MODID);
     // Create a Deferred Register to hold Items which will all be registered under the "examplemod" namespace
+    public static final DeferredBlock<AlchemyTableBlock> ALCHEMY_TABLE = BLOCKS.register("alchemy_table", AlchemyTableBlock::new, BlockBehaviour.Properties.of().strength(2.5f, 6.0f).sound(SoundType.WOOD).noOcclusion())
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(MODID);
     // Create a Deferred Register to hold CreativeModeTabs which will all be registered under the "examplemod" namespace
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(BuiltInRegistries.ENTITY_TYPE,MODID);
@@ -63,6 +66,8 @@ public class ExampleMod {
     public static final DeferredBlock<Block> EXAMPLE_BLOCK = BLOCKS.registerSimpleBlock("example_block", BlockBehaviour.Properties.of().mapColor(MapColor.STONE));
     // Creates a new BlockItem with the id "examplemod:example_block", combining the namespace and path
     public static final DeferredItem<BlockItem> EXAMPLE_BLOCK_ITEM = ITEMS.registerSimpleBlockItem("example_block", EXAMPLE_BLOCK);
+    public static final DeferredItem<BlockItem> ALCHEMY_TABLE_ITEM = ITEMS.registerSimpleBlockItem("alchemy_table", ALCHEMY_TABLE
+            );
 
     // Creates a new food item with the id "examplemod:example_id", nutrition 1 and saturation 2
     public static final DeferredItem<MagicWandItem> MAGIC_WAND = ITEMS.registerItem("magic_wand", MagicWandItem::new, new Item.Properties().stacksTo(1)
@@ -129,6 +134,9 @@ public class ExampleMod {
             event.accept(SEA_MAGIC_WAND);
             event.accept(SEEKING_MAGIC_WAND);
             event.accept(FLAME_MAGIC_WAND);
+        }
+        if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
+            event.accept(ALCHEMY_TABLE);
         }
     }
 
