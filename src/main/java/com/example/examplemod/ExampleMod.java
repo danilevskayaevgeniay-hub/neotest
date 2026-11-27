@@ -5,6 +5,7 @@ import com.example.examplemod.item.SeekingMagicWandItem;
 import com.example.examplemod.item.FlameMagicWandItem;
 import com.example.examplemod.entity.FlameProjectile;
 import com.example.examplemod.block.AlchemyTableBlock;
+import com.example.examplemod.block.entity.ModBlockEntities;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -101,6 +102,7 @@ public class ExampleMod {
         // Register the Deferred Register to the mod event bus so tabs get registered
         ENTITY_TYPES.register(modEventBus);
         //CREATIVE_MODE_TABS.register(modEventBus);
+        ModBlockEntities.BLOCK_ENTITY_TYPES.register(modEventsBus)
 
         // Register ourselves for server and other game events we are interested in.
         // Note that this is necessary if and only if we want *this* class (ExampleMod) to respond directly to events.
