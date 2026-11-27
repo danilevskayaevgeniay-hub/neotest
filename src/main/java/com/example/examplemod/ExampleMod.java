@@ -102,7 +102,7 @@ public class ExampleMod {
         // Register the Deferred Register to the mod event bus so tabs get registered
         ENTITY_TYPES.register(modEventBus);
         //CREATIVE_MODE_TABS.register(modEventBus);
-        ModBlockEntities.BLOCK_ENTITY_TYPES.register(modEventsBus);
+        ModBlockEntities.BLOCK_ENTITY_TYPES.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in.
         // Note that this is necessary if and only if we want *this* class (ExampleMod) to respond directly to events.
